@@ -276,6 +276,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/springboot单元测试的默认配置.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/springboot单元测试的默认配置.html" itemprop="url">springboot单元测试的默认配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T16:04:33+08:00">
+                2017-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/person-idea/" itemprop="url" rel="index">
+                    <span itemprop="name">person idea</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/springboot单元测试的默认配置.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/springboot单元测试的默认配置.html" class="cy_cmt_count" data-xid="springboot单元测试的默认配置.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/springboot单元测试的默认配置.html" class="leancloud_visitors" data-flag-title="springboot单元测试的默认配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近根据<a href="https://tech.meituan.com/MT_Leaf.html" target="_blank">Leaf——美团点评分布式ID生成系统</a>中Leaf-snowflake方案的思路，实现了一个简单版本的分布式ID生成方法。在这过程中遇到了一些问题，在这里把问题记下来，当个错题集吧，觉得low的看官，请勿拍砖。因为只是一个简单的生成id方法，我并未想着去将之做成单个服务，而是一个工具包的形式，让有需求的应用系统依赖这个包。所以这个时候就要考虑单个系统部署集群的时候在zookeeper里的节点如何配置。于是我能想到了是根据ip和端口号去唯一标示集群里的单个服务。然后我们的问题来了。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当我在Springboot的配置文件里配置服务的端口号，然后单元测试的时候，却怎么也获取不到这个端口号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">he application.properties:</div><div class="line">server.port = 30008</div><div class="line"></div><div class="line">@RunWith(SpringJUnit4ClassRunner.class)</div><div class="line">@SpringApplicationConfiguration(CustomerCenterApplication.class)</div><div class="line">@WebAppConfiguration</div><div class="line">public class BaseTestService &#123;</div><div class="line">@Value(&quot;$&#123;server.port&#125;&quot;)</div><div class="line">String serverPort;</div><div class="line">@Test</div><div class="line">public void test()&#123;</div><div class="line">System.out.println(serverPort);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/springboot单元测试的默认配置.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xkupc.top/并发编程里的一些概念（一）.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1160,7 +1329,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1171,7 +1340,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
