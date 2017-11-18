@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="spring-boot,java," />
 
 
 
@@ -69,16 +69,18 @@
 
 
 
-<meta name="description" content="所谓的价值，不过是将当前能做好的事做到极致，做到无人能及">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随笔">
-<meta property="og:url" content="http://xkupc.top/categories/java-framework/index.html">
+<meta name="description" content="前言上一篇我已经解除了爬虫的一些理念，那就是模拟http请求网页，后去返回的静态html，通过jsoup解析，获取页面的上的你想要的数据。但是有些情况下，页面数据是动态通过js加载的，这时候你从返回的静态页里是获取不到任何有效数据的，还有一种情况是有些网页下只有登录了，才能看到你想要的数据。这个时候selenium的作用就体现出来了。 seleniumselenium是一款自动化测试工具，通过它我">
+<meta name="keywords" content="spring-boot,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单爬虫（二）-selenium的使用">
+<meta property="og:url" content="http://xkupc.top/简单爬虫（二）-selenium的使用.html">
 <meta property="og:site_name" content="随笔">
-<meta property="og:description" content="所谓的价值，不过是将当前能做好的事做到极致，做到无人能及">
+<meta property="og:description" content="前言上一篇我已经解除了爬虫的一些理念，那就是模拟http请求网页，后去返回的静态html，通过jsoup解析，获取页面的上的你想要的数据。但是有些情况下，页面数据是动态通过js加载的，这时候你从返回的静态页里是获取不到任何有效数据的，还有一种情况是有些网页下只有登录了，才能看到你想要的数据。这个时候selenium的作用就体现出来了。 seleniumselenium是一款自动化测试工具，通过它我">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-18T09:42:25.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随笔">
-<meta name="twitter:description" content="所谓的价值，不过是将当前能做好的事做到极致，做到无人能及">
+<meta name="twitter:title" content="简单爬虫（二）-selenium的使用">
+<meta name="twitter:description" content="前言上一篇我已经解除了爬虫的一些理念，那就是模拟http请求网页，后去返回的静态html，通过jsoup解析，获取页面的上的你想要的数据。但是有些情况下，页面数据是动态通过js加载的，这时候你从返回的静态页里是获取不到任何有效数据的，还有一种情况是有些网页下只有登录了，才能看到你想要的数据。这个时候selenium的作用就体现出来了。 seleniumselenium是一款自动化测试工具，通过它我">
 
 
 
@@ -108,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://xkupc.top/categories/java-framework/"/>
+  <link rel="canonical" href="http://xkupc.top/简单爬虫（二）-selenium的使用.html"/>
 
 
 
 
 
-  <title>分类: java framework | 随笔</title>
+  <title>简单爬虫（二）-selenium的使用 | 随笔</title>
   
 
 
@@ -133,7 +135,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -261,55 +263,229 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>java framework<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/简单爬虫（二）-selenium的使用.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/神奇的springboot注解.html" itemprop="url">
-              
-                <span itemprop="name">神奇的springboot注解</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">简单爬虫（二）-selenium的使用</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-21T14:28:42+08:00"
-              content="2017-09-21" >
-          09-21
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T17:10:39+08:00">
+                2017-11-18
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/简单爬虫（二）-selenium的使用.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="简单爬虫（二）-selenium的使用.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/简单爬虫（二）-selenium的使用.html" class="leancloud_visitors" data-flag-title="简单爬虫（二）-selenium的使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇我已经解除了爬虫的一些理念，那就是模拟http请求网页，后去返回的静态html，通过jsoup解析，获取页面的上的你想要的数据。但是有些情况下，页面数据是动态通过js加载的，这时候你从返回的静态页里是获取不到任何有效数据的，还有一种情况是有些网页下只有登录了，才能看到你想要的数据。这个时候selenium的作用就体现出来了。</p>
+<h3 id="selenium"><a href="#selenium" class="headerlink" title="selenium"></a>selenium</h3><p>selenium是一款自动化测试工具，通过它我们可以通过代码的来模拟操控浏览器鼠标来获取我们想要的数据。今天我们来模拟一下自动登录腾讯视频。使用selenium我们需要引入依赖：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">           &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;</div><div class="line">           &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;</div><div class="line">           &lt;version&gt;3.7.1&lt;/version&gt;</div><div class="line">           &lt;exclusions&gt;</div><div class="line">               &lt;exclusion&gt;</div><div class="line">                   &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</div><div class="line">                   &lt;artifactId&gt;guava&lt;/artifactId&gt;</div><div class="line">               &lt;/exclusion&gt;</div><div class="line">           &lt;/exclusions&gt;</div><div class="line">       &lt;/dependency&gt;</div><div class="line">       &lt;dependency&gt;</div><div class="line">           &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</div><div class="line">           &lt;artifactId&gt;guava&lt;/artifactId&gt;</div><div class="line">           &lt;version&gt;22.0&lt;/version&gt;</div><div class="line">       &lt;/dependency&gt;</div></pre></td></tr></table></figure></p>
+<p>这里是有个坑的，selenium3.7.1的版本依赖的guava版本太高，有个方法已经找不到，会导致报错，所以我单独引入了低版本的guava。<br>要想selenium去操控浏览器，就需要一个驱动去做适配。小编用的chrome，所以自然选择chromedriver。<br>下载地址：<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="external">http://chromedriver.storage.googleapis.com/index.html</a><br>注意这里也是有坑的，chromedriver一定要和你使用的浏览器版本有对应关系，小编在这里呗坑了好久。这里我给出一个网上的大神出的映射表：<a href="http://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" rel="external">http://blog.csdn.net/huilan_same/article/details/51896672</a><br>第三个坑就是启动selenium的时候，由于其socket端口可能超过window默认允许的最大端口号大小（win7可能会有），需要在系统配置里设置一下最大端口号。具体操作的说明地址，小编忘记了。。。。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">public void login() &#123;</div><div class="line">        WebDriver driver;</div><div class="line"></div><div class="line">        System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;D:/tools/chromedriver/chromedriver.exe&quot;);//这一步必不可少</div><div class="line"></div><div class="line">        driver = new ChromeDriver();</div><div class="line"></div><div class="line">        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);</div><div class="line"></div><div class="line">        driver.get(&quot;https://v.qq.com/&quot;);</div><div class="line">        try &#123;</div><div class="line">            WebElement webElement = driver.findElement(By.xpath(&quot;//div[@class=&apos;quick_item quick_user&apos;]&quot;));</div><div class="line">            Actions action = new Actions(driver);</div><div class="line">            //模拟鼠标停到头像上</div><div class="line">            action.moveToElement(webElement).perform();</div><div class="line">            //必须休眠一下，等登录框按钮出现</div><div class="line">            Thread.sleep(500L);</div><div class="line">            webElement = driver.findElement(By.xpath(&quot;//div[@class=&apos;quick_pop_btn&apos;]&quot;));</div><div class="line">            webElement.click();</div><div class="line">            webElement = driver.findElement(By.xpath(&quot;//div[@class=&apos;login_btns&apos;]&quot;));</div><div class="line">            WebElement qqloginElement = webElement.findElement(By.xpath(&quot;//a[@class=&apos;btn_qq _login_type_item&apos;]&quot;));</div><div class="line">            qqloginElement.click();</div><div class="line">            Thread.sleep(500L);</div><div class="line">            //切换iframe,使用账号密码登陆</div><div class="line">            driver.switchTo().frame(&quot;_login_frame_quick_&quot;);</div><div class="line">            WebElement loginElement = driver.findElement(By.xpath(&quot;//div[@class=&apos;login&apos;]&quot;));</div><div class="line">            WebElement loginElementWithAccount = loginElement.findElement(By.xpath(&quot;//div[@class=&apos;bottom hide&apos;]&quot;));</div><div class="line">            loginElementWithAccount = loginElementWithAccount.findElement(By.xpath(&quot;//a[@id=&apos;switcher_plogin&apos;]&quot;));</div><div class="line">            loginElementWithAccount.click();</div><div class="line">            loginElementWithAccount = driver.findElement(By.xpath(&quot;//div[@class=&apos;web_qr_login&apos;]&quot;));</div><div class="line">            loginElementWithAccount = loginElementWithAccount.findElement(By.xpath(&quot;//div[@class=&apos;web_qr_login_show&apos;]&quot;)).findElement(By.xpath(&quot;//div[@class=&apos;web_login&apos;]&quot;)).</div><div class="line">                    findElement(By.xpath(&quot;//div[@class=&apos;login_form&apos;]&quot;));</div><div class="line">            loginElementWithAccount.findElement(By.xpath(&quot;//div[@class=&apos;uinArea&apos;]&quot;)).findElement(By.id(&quot;u&quot;)).clear();</div><div class="line">            //设置账号</div><div class="line">            loginElementWithAccount.findElement(By.xpath(&quot;//div[@class=&apos;uinArea&apos;]&quot;)).findElement(By.id(&quot;u&quot;)).sendKeys(&quot;XXXX&quot;);</div><div class="line">            loginElementWithAccount.findElement(By.xpath(&quot;//div[@class=&apos;pwdArea&apos;]&quot;)).findElement(By.id(&quot;p&quot;)).clear();</div><div class="line">            //设置密码</div><div class="line">            loginElementWithAccount.findElement(By.xpath(&quot;//div[@class=&apos;pwdArea&apos;]&quot;)).findElement(By.id(&quot;p&quot;)).sendKeys(&quot;XXXXX&quot;);</div><div class="line">            loginElementWithAccount.findElement(By.xpath(&quot;//div[@class=&apos;submit&apos;]&quot;)).findElement(By.xpath(&quot;//a[@class=&apos;login_button&apos;]&quot;)).click();</div><div class="line">            Thread.sleep(100L);</div><div class="line">            Set&lt;Cookie&gt; cookies = driver.manage().getCookies();</div><div class="line">            //保存cookie</div><div class="line">            redisTemplate.opsForSet().add(&quot;cookie&quot;, cookies);</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            System.err.println(e);</div><div class="line">        &#125; finally &#123;</div><div class="line">            if (null != driver) &#123;</div><div class="line">                driver.close();</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="许凯 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="许凯 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/简单爬虫（一）.html" rel="next" title="简单爬虫（一）">
+                <i class="fa fa-chevron-left"></i> 简单爬虫（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -317,6 +493,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -337,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -439,6 +630,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selenium"><span class="nav-number">2.</span> <span class="nav-text">selenium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
