@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/简单爬虫（二）-selenium的使用.html">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/并发编程-Semaphore的用法.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="许凯">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/简单爬虫（二）-selenium的使用.html" itemprop="url">简单爬虫（二）-selenium的使用</a></h1>
+                <a class="post-title-link" href="/并发编程-Semaphore的用法.html" itemprop="url">并发编程-Semaphore的用法</a></h1>
         
 
         <div class="post-meta">
@@ -307,515 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T17:10:39+08:00">
-                2017-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/springboot/" itemprop="url" rel="index">
-                    <span itemprop="name">springboot</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/简单爬虫（二）-selenium的使用.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/简单爬虫（二）-selenium的使用.html" class="cy_cmt_count" data-xid="简单爬虫（二）-selenium的使用.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/简单爬虫（二）-selenium的使用.html" class="leancloud_visitors" data-flag-title="简单爬虫（二）-selenium的使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇我已经解除了爬虫的一些理念，那就是模拟http请求网页，后去返回的静态html，通过jsoup解析，获取页面的上的你想要的数据。但是有些情况下，页面数据是动态通过js加载的，这时候你从返回的静态页里是获取不到任何有效数据的，还有一种情况是有些网页下只有登录了，才能看到你想要的数据。这个时候selenium的作用就体现出来了。</p>
-<h3 id="selenium"><a href="#selenium" class="headerlink" title="selenium"></a>selenium</h3><p>selenium是一款自动化测试工具，通过它我们可以通过代码的来模拟操控浏览器鼠标来获取我们想要的数据。今天我们来模拟一下自动登录腾讯视频。使用selenium我们需要引入依赖：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/简单爬虫（二）-selenium的使用.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/简单爬虫（一）.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="许凯">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/简单爬虫（一）.html" itemprop="url">简单爬虫（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T16:13:33+08:00">
-                2017-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/springboot/" itemprop="url" rel="index">
-                    <span itemprop="name">springboot</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/简单爬虫（一）.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/简单爬虫（一）.html" class="cy_cmt_count" data-xid="简单爬虫（一）.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/简单爬虫（一）.html" class="leancloud_visitors" data-flag-title="简单爬虫（一）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>荒废的时光。。。。。果然有些东西真的是一时心血来潮，坚持真的很重要的。最近也是心血来潮，研究了一下网络爬虫的套路。其实很简单，就是模拟http请求网页，然后获取静态的html字符串，使用解析工具解析html获取你想要的结果。我不知道说的对不对，可能真正写爬虫的会觉得这种想法是很low。我也想了解更深次的爬虫，可以一直爬的爬虫，什么深度遍历广度遍历算法，异步解析啊，这里面学问很深。不过不要紧，慢慢来，万丈高楼平地起，由简入难，坚持，总有一天你会成功的。</p>
-<h3 id="简单爬虫-获取腾讯视频vip视频url"><a href="#简单爬虫-获取腾讯视频vip视频url" class="headerlink" title="简单爬虫-获取腾讯视频vip视频url"></a>简单爬虫-获取腾讯视频vip视频url</h3><p>最先接触爬虫，我能想到的就是获取静态页的视频url.所以就拿腾讯视频练练手。前面也说了，我的方法很简单就是模拟http请求，然后解析html。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/简单爬虫（一）.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/springboot单元测试的默认配置.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="许凯">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/springboot单元测试的默认配置.html" itemprop="url">springboot单元测试的默认配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T16:04:33+08:00">
-                2017-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/person-idea/" itemprop="url" rel="index">
-                    <span itemprop="name">person idea</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/springboot单元测试的默认配置.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/springboot单元测试的默认配置.html" class="cy_cmt_count" data-xid="springboot单元测试的默认配置.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/springboot单元测试的默认配置.html" class="leancloud_visitors" data-flag-title="springboot单元测试的默认配置">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近根据<a href="https://tech.meituan.com/MT_Leaf.html" target="_blank">Leaf——美团点评分布式ID生成系统</a>中Leaf-snowflake方案的思路，实现了一个简单版本的分布式ID生成方法。在这过程中遇到了一些问题，在这里把问题记下来，当个错题集吧，觉得low的看官，请勿拍砖。因为只是一个简单的生成id方法，我并未想着去将之做成单个服务，而是一个工具包的形式，让有需求的应用系统依赖这个包。所以这个时候就要考虑单个系统部署集群的时候在zookeeper里的节点如何配置。于是我能想到了是根据ip和端口号去唯一标示集群里的单个服务。然后我们的问题来了。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当我在Springboot的配置文件里配置服务的端口号，然后单元测试的时候，却怎么也获取不到这个端口号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">he application.properties:</div><div class="line">server.port = 30008</div><div class="line"></div><div class="line">@RunWith(SpringJUnit4ClassRunner.class)</div><div class="line">@SpringApplicationConfiguration(CustomerCenterApplication.class)</div><div class="line">@WebAppConfiguration</div><div class="line">public class BaseTestService &#123;</div><div class="line">@Value(&quot;$&#123;server.port&#125;&quot;)</div><div class="line">String serverPort;</div><div class="line">@Test</div><div class="line">public void test()&#123;</div><div class="line">System.out.println(serverPort);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/springboot单元测试的默认配置.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/并发编程里的一些概念（一）.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="许凯">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/并发编程里的一些概念（一）.html" itemprop="url">并发编程里的一些概念（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T16:06:56+08:00">
-                2017-10-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T16:06:56+08:00">
+                2018-06-11
               </time>
             
 
@@ -856,8 +349,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/并发编程里的一些概念（一）.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/并发编程里的一些概念（一）.html" class="cy_cmt_count" data-xid="并发编程里的一些概念（一）.html" itemprop="commentsCount" ></span>
+                <a href="/并发编程-Semaphore的用法.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/并发编程-Semaphore的用法.html" class="cy_cmt_count" data-xid="并发编程-Semaphore的用法.html" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -865,7 +358,7 @@
 
           
           
-             <span id="/并发编程里的一些概念（一）.html" class="leancloud_visitors" data-flag-title="并发编程里的一些概念（一）">
+             <span id="/并发编程-Semaphore的用法.html" class="leancloud_visitors" data-flag-title="并发编程-Semaphore的用法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -897,15 +390,17 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前阵子，研究了一下分布式唯一ID的生成方法，接触了多线程的一些东西，发现自己对并发编程的一些基础概念还是一无所知，对于并发的控制还是停留在synchronized的层面，简直不能再低级了，小编可是要成为架构师的男人，怎么可以如此堕落。于是可劲各种谷歌了。今天做一点基础的入门笔记，简单介绍一下多线程编程里的一些概念。</p>
-<h2 id="线程的实现"><a href="#线程的实现" class="headerlink" title="线程的实现"></a>线程的实现</h2><p>从最基本的开始，我们知道线程最基本的实现有两种。实现Runable接口和继承Thread重写run方法。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/并发编程里的一些概念（一）.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>继续看并发编程里的基础知识，今天来看一下Semaphore，Semaphore又称信号量，同样也是CyclicBarrierjava.util.concurrent包下一个多线程交互的辅助工具类。</p>
+<h2 id="Semaphore的概念"><a href="#Semaphore的概念" class="headerlink" title="Semaphore的概念"></a>Semaphore的概念</h2><p>用来控制线程并发的数量。有点像lock，实现对资源获取权的限制，又有点像线程池，有多个资源获取权供线程获取和释放，不同的是线程通过Semaphore加锁和获取释放的并不是资源本身，而是Semaphore提供的一种许可状态。可能这么说不大好理解，我们来看看Semaphore的用法</p>
+<h2 id="Semaphore的用法"><a href="#Semaphore的用法" class="headerlink" title="Semaphore的用法"></a>Semaphore的用法</h2><p>也是提供了两个构造函数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过permits指定控制并发线程的个数</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Semaphore</span><span class="params">(<span class="keyword">int</span> permits)</span> </span>&#123;&#125;</div><div class="line"><span class="comment">//通过fair,指定是否采用先进先出的策略来获取信号量许可，默认是NOfair的</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Semaphore</span><span class="params">(<span class="keyword">int</span> permits, <span class="keyword">boolean</span> fair)</span></span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>核心方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取一个信号量许可，对应的还有获取多个信号量的重载方法，若获取不到，当前线程阻塞</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">acquire</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;&#125;</div><div class="line"><span class="comment">//释放一个信号量许可，对应的还有释放多个信号量的重载方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">()</span></span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>看一个例子，通过Semaphore实现十个线程只有五个可以并发的操作<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Semaphore semaphore = <span class="keyword">new</span> Semaphore(<span class="number">5</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">            <span class="keyword">new</span> Worker(semaphore).start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> Semaphore semaphore;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">(Semaphore semaphore)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.semaphore = semaphore;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                semaphore.acquire();</div><div class="line">                System.out.println(<span class="string">"子线程"</span> + Thread.currentThread().getName() + <span class="string">"开始执行"</span>);</div><div class="line">                Thread.sleep(<span class="number">3000</span>);</div><div class="line">                System.out.println(<span class="string">"子线程"</span> + Thread.currentThread().getName() + <span class="string">"执行完毕"</span>);</div><div class="line">                semaphore.release();</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">子线程Thread-0开始执行</div><div class="line">子线程Thread-1开始执行</div><div class="line">子线程Thread-2开始执行</div><div class="line">子线程Thread-3开始执行</div><div class="line">子线程Thread-4开始执行</div><div class="line">子线程Thread-1执行完毕</div><div class="line">子线程Thread-5开始执行</div><div class="line">子线程Thread-2执行完毕</div><div class="line">子线程Thread-6开始执行</div><div class="line">子线程Thread-4执行完毕</div><div class="line">子线程Thread-7开始执行</div><div class="line">子线程Thread-0执行完毕</div><div class="line">子线程Thread-9开始执行</div><div class="line">子线程Thread-3执行完毕</div><div class="line">子线程Thread-8开始执行</div><div class="line">子线程Thread-5执行完毕</div><div class="line">子线程Thread-6执行完毕</div><div class="line">子线程Thread-9执行完毕</div><div class="line">子线程Thread-7执行完毕</div><div class="line">子线程Thread-8执行完毕</div></pre></td></tr></table></figure></p>
+<p>从结果可以看到前五个线程并发执行，后五个必须等前面五个释放信号量许可才能开始执行<br>在有些场景下为了避免限制并发之后，大量线程因调用semaphore.acquire()而出现死等的情况，我们可以通过判断其提供的非阻塞的几个方法的返回结果来避免线程等待：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//尝试获取一个信号量许可，若获取成功，则立即返回true，若获取失败，则立即返回false</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">()</span> </span>&#123; &#125;;</div><div class="line"><span class="comment">//尝试获取一个信号量许可，若在指定的时间内获取成功，则立即返回true，则立即返回false</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException </span>&#123; &#125;;</div><div class="line"><span class="comment">//尝试获取permits个信号量许可，若获取成功，则立即返回true，若获取失败，则立即返回false</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">(<span class="keyword">int</span> permits)</span> </span>&#123; &#125;; </div><div class="line"><span class="comment">//尝试获取permits个信号量许可，若在指定的时间内获取成功，则立即返回true，否则则立即返回false</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">(<span class="keyword">int</span> permits, <span class="keyword">long</span> timeout, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException </span>&#123; &#125;;</div></pre></td></tr></table></figure></p>
+<p>由此我们可以看出，通过Semaphore我们可以控制资源的访问权限，比如连接池。</p>
+
+          
         
       
     </div>
@@ -952,7 +447,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/神奇的springboot注解.html">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/并发编程-CyclicBarrier的使用.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="许凯">
@@ -971,7 +466,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/神奇的springboot注解.html" itemprop="url">神奇的springboot注解</a></h1>
+                <a class="post-title-link" href="/并发编程-CyclicBarrier的使用.html" itemprop="url">并发编程-CyclicBarrier的使用</a></h1>
         
 
         <div class="post-meta">
@@ -983,8 +478,356 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T14:28:42+08:00">
-                2017-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T16:06:56+08:00">
+                2018-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java-base/" itemprop="url" rel="index">
+                    <span itemprop="name">java base</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/并发编程-CyclicBarrier的使用.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/并发编程-CyclicBarrier的使用.html" class="cy_cmt_count" data-xid="并发编程-CyclicBarrier的使用.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/并发编程-CyclicBarrier的使用.html" class="leancloud_visitors" data-flag-title="并发编程-CyclicBarrier的使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇里CountDownLatch的使用，这一篇来学习一个和CountDownLatch功能差不多的线程同步工具类CyclicBarrier。</p>
+<h2 id="CyclicBarrier的概念"><a href="#CyclicBarrier的概念" class="headerlink" title="CyclicBarrier的概念"></a>CyclicBarrier的概念</h2><p>同样的CyclicBarrierjava.util.concurrent包下用来实现多线程之间同步的工具类，比起CountDownLatch，CyclicBarrier通过一个默认状态(所有的线程都被挂起)来作为是否继续执行的标记，当所有的线程都到达这个状态时，线程才可以继续往下执行。</p>
+<h2 id="CountDownLatch的用法"><a href="#CountDownLatch的用法" class="headerlink" title="CountDownLatch的用法"></a>CountDownLatch的用法</h2><p>CountDownLatch提供了两个构造函数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//指定等待到默认状态的线程数</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">CyclicBarrier</span><span class="params">(<span class="keyword">int</span> parties)</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="comment">//指定所有线程达到默认状态后，会执行的操作barrierAction，该操作将由最后一个达到默认状态的线程执行</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">CyclicBarrier</span><span class="params">(<span class="keyword">int</span> parties, Runnable barrierAction)</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>核心方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//调用此方法的线程，实际上就是被挂起，达到默认状态</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">await</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, BrokenBarrierException </span>&#123; &#125;;</div><div class="line"><span class="comment">//指定超时时间，超时后，达到默认状态的线程也会继续执行，同时会抛出异常 生产建议使用超时时间，避免死等造成内存溢出</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">await</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span><span class="keyword">throws</span> InterruptedException,BrokenBarrierException,TimeoutException </span>&#123; &#125;;</div></pre></td></tr></table></figure></p>
+<p>来看个例子，通过CyclicBarrier实现两个线程的同步<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span>  <span class="keyword">int</span> workerNum = <span class="number">2</span>;</div><div class="line">        <span class="keyword">final</span>  CyclicBarrier barrier = <span class="keyword">new</span> CyclicBarrier(workerNum);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;workerNum;i++)&#123;</div><div class="line">            <span class="keyword">new</span> Worker(barrier).start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">        <span class="keyword">private</span> CyclicBarrier cyclicBarrier;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">(CyclicBarrier cyclicBarrier)</span></span>&#123;</div><div class="line">            <span class="keyword">this</span>.cyclicBarrier = cyclicBarrier;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"开始执行"</span>);</div><div class="line">                Thread.sleep(<span class="number">3000</span>);</div><div class="line">                System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"执行完毕"</span>);</div><div class="line">                cyclicBarrier.await();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            System.out.println(<span class="string">"所有线程执行完毕，继续执行其他东西..."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>执行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">子线程Thread-0开始执行</div><div class="line">子线程Thread-1开始执行</div><div class="line">子线程Thread-0执行完毕</div><div class="line">子线程Thread-1执行完毕</div><div class="line">所有线程执行完毕，继续执行其他东西...</div><div class="line">所有线程执行完毕，继续执行其他东西...</div></pre></td></tr></table></figure></p>
+<p>如果不使用 cyclicBarrier.await()，执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">子线程Thread-1开始执行</div><div class="line">子线程Thread-0开始执行</div><div class="line">子线程Thread-1执行完毕</div><div class="line">所有线程执行完毕，继续执行其他东西...</div><div class="line">子线程Thread-0执行完毕</div><div class="line">所有线程执行完毕，继续执行其他东西...</div></pre></td></tr></table></figure></p>
+<p>从结果可以看出，通过cyclicBarrier.await()，每个线程执行完毕后，都在等待其他线程执行完毕，然后执行后续其他东西的执行。<br>同时我们可以通过实现barrierAction进行额外的一些操作来实现更多复杂的业务场景：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span>  <span class="keyword">int</span> workerNum = <span class="number">2</span>;</div><div class="line">        <span class="keyword">final</span>  CyclicBarrier barrier = <span class="keyword">new</span> CyclicBarrier(workerNum, <span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                System.out.println(<span class="string">"当前线程:"</span>+Thread.currentThread().getName()+<span class="string">"开始执行其他一些操作了"</span>);</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    Thread.sleep(<span class="number">5000</span>);</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;workerNum;i++)&#123;</div><div class="line">            <span class="keyword">new</span> Worker(barrier).start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">        <span class="keyword">private</span> CyclicBarrier cyclicBarrier;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">(CyclicBarrier cyclicBarrier)</span></span>&#123;</div><div class="line">            <span class="keyword">this</span>.cyclicBarrier = cyclicBarrier;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"开始执行"</span>);</div><div class="line">                Thread.sleep(<span class="number">3000</span>);</div><div class="line">                System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"执行完毕"</span>);</div><div class="line">                cyclicBarrier.await();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            System.out.println(<span class="string">"所有线程执行完毕，继续执行其他东西..."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">子线程Thread-0开始执行</div><div class="line">子线程Thread-1开始执行</div><div class="line">子线程Thread-0执行完毕</div><div class="line">子线程Thread-1执行完毕</div><div class="line">当前线程:Thread-1开始执行其他一些操作了</div><div class="line">所有线程执行完毕，继续执行其他东西...</div><div class="line">所有线程执行完毕，继续执行其他东西...</div></pre></td></tr></table></figure></p>
+<p>从结果可以看出只有Thread-1执行了barrierAction，且是它完成操作后，各个线程才执行后续的操作。<br>从await方法注释里我们知道，是最后一个到达默认状态的线程执行了barrierAction<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* Creates a <span class="keyword">new</span> &#123;<span class="meta">@code</span> CyclicBarrier&#125; that will trip when the</div><div class="line">* <span class="function">given number of <span class="title">parties</span> <span class="params">(threads)</span> are waiting upon it, and which</span></div><div class="line"><span class="function">* will execute the given barrier action when the barrier is tripped,</span></div><div class="line"><span class="function">* performed by the last thread entering the barrier.</span></div></pre></td></tr></table></figure></p>
+<h2 id="与CountDownLatch区别"><a href="#与CountDownLatch区别" class="headerlink" title="与CountDownLatch区别"></a>与CountDownLatch区别</h2><p>CountDownLatch主要用于一个线程与其他多个线程的同步上，barrierAction主要是用于多个线程之间的同步，同步相对简单，且能支持复杂的业务场景。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/并发编程-CountDownLatch与join.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/并发编程-CountDownLatch与join.html" itemprop="url">并发编程-CountDownLatch与join</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T16:06:56+08:00">
+                2018-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java-base/" itemprop="url" rel="index">
+                    <span itemprop="name">java base</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/并发编程-CountDownLatch与join.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/并发编程-CountDownLatch与join.html" class="cy_cmt_count" data-xid="并发编程-CountDownLatch与join.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/并发编程-CountDownLatch与join.html" class="leancloud_visitors" data-flag-title="并发编程-CountDownLatch与join">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近比较闲，继续前阵子想学的东西-并发编程，还是从最基础的东西开始。在jdk1.5中提供了许多并发编程的类，今天来学西一个简单的辅助类-CountDownLatch。</p>
+<h2 id="CountDownLatch的概念"><a href="#CountDownLatch的概念" class="headerlink" title="CountDownLatch的概念"></a>CountDownLatch的概念</h2><p>CountDownLatch是在java.util.concurrent包下用来实现多线程之间同步的工具类，可以理解为它间接的了实现了线程之间的通信功能。我们可以通过它来实现主线程等待一个线程组完成工作后继续执行，CountDownLatch通过主线程初始化一个计数器，然后等待子线程，各个子线程完成工作后执行计数器减一的操作，当计数器值减为0时，代表所有的子线程都已完成作业，则主线程可继续执行。</p>
+<h2 id="CountDownLatch的用法"><a href="#CountDownLatch的用法" class="headerlink" title="CountDownLatch的用法"></a>CountDownLatch的用法</h2><p>CountDownLatch的构造器：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//初始化计数器值count</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">CountDownLatch</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;  &#125;;</div></pre></td></tr></table></figure></p>
+<p>CountDownLatch的三个核心方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//调用此方法的线程会被挂起（应该是同步阻塞）它会等待直到count值为0才继续执行</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">await</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123; &#125;;</div><div class="line"><span class="comment">//设置挂起的超时时间，如果超时，不管count值，主线程都会继续执行，这里超时会抛出异常，需要捕获，生产建议使用超时时间，避免死等造成内存溢出</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">await</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException </span>&#123; &#125;; </div><div class="line"><span class="comment">//将count值减1</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">countDown</span><span class="params">()</span> </span>&#123; &#125;;</div></pre></td></tr></table></figure></p>
+<p>通过CountDownLatch实现两个子进程与主线程的同步<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span>  <span class="keyword">int</span> workerNum = <span class="number">2</span>;</div><div class="line">        <span class="keyword">final</span>  CountDownLatch latch = <span class="keyword">new</span> CountDownLatch(workerNum);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;workerNum;i++)&#123;</div><div class="line">             <span class="keyword">new</span> Worker(latch).start();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            System.out.println(<span class="string">"等待子线程执行..."</span>);</div><div class="line">           <span class="keyword">long</span> time1 = System.currentTimeMillis();</div><div class="line">            latch.await();</div><div class="line">            System.out.println(<span class="string">"子线程执行完毕，等待时间:"</span>+ String.valueOf(System.currentTimeMillis()-time1));</div><div class="line">            System.out.println(<span class="string">"主线程继续执行"</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">        <span class="keyword">private</span> CountDownLatch latch;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">(<span class="keyword">final</span> CountDownLatch latch)</span></span>&#123;</div><div class="line">            <span class="keyword">this</span>.latch = latch;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"开始执行"</span>);</div><div class="line">                Thread.sleep(<span class="number">3000</span>);</div><div class="line">                System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"执行完毕"</span>);</div><div class="line">                latch.countDown();</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">等待子线程执行...</div><div class="line">子线程Thread-1开始执行</div><div class="line">子线程Thread-0开始执行</div><div class="line">子线程Thread-1执行完毕</div><div class="line">子线程Thread-0执行完毕</div><div class="line">子线程执行完毕，等待时间:3002</div><div class="line">主线程继续执行</div></pre></td></tr></table></figure></p>
+<h2 id="与join的区别"><a href="#与join的区别" class="headerlink" title="与join的区别"></a>与join的区别</h2><p>实现线程的同步，我们很容易想到join，看看join实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">          Worker a = <span class="keyword">new</span> Worker();</div><div class="line">          Worker b = <span class="keyword">new</span> Worker();</div><div class="line">          a.start();</div><div class="line">          b.start();</div><div class="line">          System.out.println(<span class="string">"等待子线程执行..."</span>);</div><div class="line">         <span class="keyword">long</span> time1 = System.currentTimeMillis();</div><div class="line">          a.join();</div><div class="line">          b.join();</div><div class="line">          System.out.println(<span class="string">"子线程执行完毕,等待时间:"</span>+ String.valueOf(System.currentTimeMillis()-time1));</div><div class="line">          System.out.println(<span class="string">"主线程继续执行"</span>);</div><div class="line">      &#125;<span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">          e.printStackTrace();</div><div class="line">      &#125;</div><div class="line"></div><div class="line">   &#125;</div><div class="line">   <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">           <span class="keyword">try</span> &#123;</div><div class="line">               System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"开始执行"</span>);</div><div class="line">               Thread.sleep(<span class="number">3000</span>);</div><div class="line">               System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"执行完毕"</span>);</div><div class="line">           &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">               e.printStackTrace();</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">等待子线程执行...</div><div class="line">子线程Thread-1开始执行</div><div class="line">子线程Thread-0开始执行</div><div class="line">子线程Thread-1执行完毕</div><div class="line">子线程Thread-0执行完毕</div><div class="line">子线程执行完毕，等待时间:3004</div><div class="line">主线程继续执行</div></pre></td></tr></table></figure></p>
+<p>我们可以看到打印结果是一样的，那join和CountDownLatch有什么区别呢?<br>我觉得可以这么理解，首先主线程通过调用子线程的join方法后，必须等到子线程执行完成后，才能会继续执行，而使用CountDownLatch则只需等到计数器值为0，主线程即可继续执行下去，不必等到子线程执行完，也就说我们可以继续在子线程执行完latch.countDown()后继续执行一些任务，在实际业务场景中做到更加精细的控制。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">           <span class="keyword">try</span> &#123;</div><div class="line">               System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"开始执行"</span>);</div><div class="line">               Thread.sleep(<span class="number">3000</span>);</div><div class="line">               System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"执行完毕"</span>);</div><div class="line">               latch.countDown();</div><div class="line">               System.out.println(<span class="string">"子线程"</span>+Thread.currentThread().getName()+<span class="string">"执行别的东西"</span>);</div><div class="line">           &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">               e.printStackTrace();</div><div class="line">           &#125;</div></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">等待子线程执行...</div><div class="line">子线程Thread-<span class="number">1</span>开始执行</div><div class="line">子线程Thread-<span class="number">0</span>开始执行</div><div class="line">子线程Thread-<span class="number">0</span>执行完毕</div><div class="line">子线程Thread-<span class="number">0</span>执行别的东西</div><div class="line">子线程Thread-<span class="number">1</span>执行完毕</div><div class="line">子线程执行完毕，等待时间:<span class="number">3001</span></div><div class="line">主线程继续执行</div><div class="line">子线程Thread-<span class="number">1</span>执行别的东西</div></pre></td></tr></table></figure></p>
+<p>说到这里我们可能会想到Lock与synchronized 的区别，差不多也是这个套路吧。另一方面，我们还可以将CountDownLatch用于一组线程互相等待至某个状态，然后这一组线程再同时执行的场景，子线程设置 latch.await()，主线程里通过latch.countDown()触发所有子线程执行。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/Springboot注解之Profile.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Springboot注解之Profile.html" itemprop="url">Springboot注解之Profile</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T15:57:46+08:00">
+                2018-01-31
               </time>
             
 
@@ -1025,8 +868,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/神奇的springboot注解.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/神奇的springboot注解.html" class="cy_cmt_count" data-xid="神奇的springboot注解.html" itemprop="commentsCount" ></span>
+                <a href="/Springboot注解之Profile.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/Springboot注解之Profile.html" class="cy_cmt_count" data-xid="Springboot注解之Profile.html" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -1034,7 +877,7 @@
 
           
           
-             <span id="/神奇的springboot注解.html" class="leancloud_visitors" data-flag-title="神奇的springboot注解">
+             <span id="/Springboot注解之Profile.html" class="leancloud_visitors" data-flag-title="Springboot注解之Profile">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1066,11 +909,11 @@
 
       
         
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>小编接触springboot的时间很短，平时也就拿着已经成熟的框架，写着无关痛痒的业务代码，在看druid的源码的时候，涉猎了很多注解，发现通过简单的一个注解，使大量的配置属性初始化到bean里，对我这种还停留在@value级别的小白来说简直大开眼界了。今天想着介绍一下springboot里我刚刚学到的几个厉害的注解。</p>
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>在介绍厉害的之前我们先来入个门，这个注解在spring里就已经存在了，是spring用来替代通过xml配置bean的繁琐方式的。在spring里使用这个注解，我们需要在xml里指定扫描的路径，而在springboot里我们就完全不用指定，只要保证springboot启动入口的路径包含了注解所在的包就可以了。在springboot里这个注解一般用来在系统启动时初始化系统数据源，数据库中间件等一些系统配置项。<br>下面我们通过一个例子来看看：<br>
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>荒废一周研究activiti无果，研究一下有意思的Springboot注解。我们都知道springboot提供spring.profiles.active参数配置让开发者配置不同的运行环境的配置。今天来介绍一个关于这个配置的另一个用法。还是来说一个业务场景，有一个需要发送手机验证码场景，我们都知道第三方的手机短信推送服务是按次数计费的，考虑到成本，我们在测试环境测试的时候可以不真实的将短信发送，而是保存短信记录，在后台管理页查看短信发送记录即可获取验证码。这个时候我们可能想到测试和生产环境要切换接口，那么如何优雅的切换接口呢？</p>
+<h2 id="Profile注解"><a href="#Profile注解" class="headerlink" title="Profile注解"></a>Profile注解</h2><p>使用profile注解，我们可以将当前环境对应的配置bean或者service通过spirng的DI进行依赖注入。也就说一个短信发送服务接口，我有两种实现，一种实现测试环境不真实发送，一种实现生产环境真实发送，然后通过在两个实现上设置profile注解的环境值，spring会根据spring.profiles.active设置值来注入相应环境下的服务。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/神奇的springboot注解.html#more" rel="contents">
+            <a class="btn" href="/Springboot注解之Profile.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1121,7 +964,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/spring-boot里druid连接池配置（三）.html">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/spring-boot与RabbitMQ整合.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="许凯">
@@ -1140,7 +983,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/spring-boot里druid连接池配置（三）.html" itemprop="url">spring-boot里druid连接池配置（三）</a></h1>
+                <a class="post-title-link" href="/spring-boot与RabbitMQ整合.html" itemprop="url">spring-boot与RabbitMQ整合</a></h1>
         
 
         <div class="post-meta">
@@ -1152,8 +995,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T09:25:23+08:00">
-                2017-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T11:08:22+08:00">
+                2018-01-04
               </time>
             
 
@@ -1175,8 +1018,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java中间件/" itemprop="url" rel="index">
-                    <span itemprop="name">java中间件</span>
+                  <a href="/categories/消息中间件-Rabbitmq/" itemprop="url" rel="index">
+                    <span itemprop="name">消息中间件,Rabbitmq</span>
                   </a>
                 </span>
 
@@ -1194,8 +1037,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/spring-boot里druid连接池配置（三）.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/spring-boot里druid连接池配置（三）.html" class="cy_cmt_count" data-xid="spring-boot里druid连接池配置（三）.html" itemprop="commentsCount" ></span>
+                <a href="/spring-boot与RabbitMQ整合.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/spring-boot与RabbitMQ整合.html" class="cy_cmt_count" data-xid="spring-boot与RabbitMQ整合.html" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -1203,7 +1046,7 @@
 
           
           
-             <span id="/spring-boot里druid连接池配置（三）.html" class="leancloud_visitors" data-flag-title="spring-boot里druid连接池配置（三）">
+             <span id="/spring-boot与RabbitMQ整合.html" class="leancloud_visitors" data-flag-title="spring-boot与RabbitMQ整合">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1235,12 +1078,11 @@
 
       
         
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>上一篇我们知道druid实现监控的大致原理，今天我们学习一下，druid数据库连接池的实现。</p>
-<h3 id="数据库连接池配置"><a href="#数据库连接池配置" class="headerlink" title="数据库连接池配置"></a>数据库连接池配置</h3><p>首先我们来看一下数据库数据源的初始化配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 主数据源</div><div class="line"> */</div><div class="line"></div><div class="line">@Bean(name = &quot;primaryDataSource&quot;)</div><div class="line">@Primary</div><div class="line">@ConfigurationProperties(prefix = &quot;spring.datasource.druid&quot;)</div><div class="line">public DataSource primaryDataSource() &#123;</div><div class="line">    return DruidDataSourceBuilder.create().build();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>获取spring.datasource.druid前缀的相关配置属性，初始化数据源。我们来看看druid为适配springboot开发的druid-spring-boot-starter都做了哪些事。<br><img src="/images/druid/druid-spring-boot-starter.png" alt="druid-spring-boot-starter代码结构"><br>从图中我们看到，这个包很简单，主要做了两个事，一个是通过springboot的数据源初始化机制初始化自己的数据源，通过DruidDataSourceWrapper兼容springboot的数据源配置，第二个是通过springboot的注解机制，通过配置初始化自定义的系列Filter。<br>是的，我们也可以通过配置文件配置我们上篇文章提到的statViewServlet和webStatFilter。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//初始化statViewServlet</div><div class="line">spring.datasource.druid.stat-view-servlet.enabled</div><div class="line">//初始化webStatFilter</div><div class="line">spring.datasource.druid.web-stat-filter.enabled</div></pre></td></tr></table></figure></p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面几篇我们了解了RabbitMQ的消息模型和一些工作机制，今天通过spring-boot对其进行一下整合。我们知道了RabbitMQ通过Exchange对消息进行分发，Exchange有fanout,topic,direct和默认等几种类型。下面来分别对这几种类型进行spring-boot的整合。关于springboot与RabbitMQ的整合，在网上可以找到很多的demo,单独跑是没有问题的，但是如果想要把它抽象到框架上的东西，供业务层调用就比较难了，毕竟是要做架构师的男人，就该勇敢的尝试一下。</p>
+<h2 id="RabbitMQ配置"><a href="#RabbitMQ配置" class="headerlink" title="RabbitMQ配置"></a>RabbitMQ配置</h2><p>AMQP依赖：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;<span class="regexp">/groupId&gt;</span></div><div class="line"><span class="regexp">    &lt;artifactId&gt;spring-boot-starter-amqp&lt;/</span>artifactId&gt;</div><div class="line">    &lt;version&gt;<span class="number">1.4</span><span class="number">.5</span>.RELEASE&lt;<span class="regexp">/version&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>dependency&gt;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/spring-boot里druid连接池配置（三）.html#more" rel="contents">
+            <a class="btn" href="/spring-boot与RabbitMQ整合.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1291,7 +1133,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/spring-boot里druid连接池配置（二）.html">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/消息中间件-Rabbitmq远程过程调用（RPC）.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="许凯">
@@ -1310,7 +1152,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/spring-boot里druid连接池配置（二）.html" itemprop="url">spring-boot里druid连接池配置（二）</a></h1>
+                <a class="post-title-link" href="/消息中间件-Rabbitmq远程过程调用（RPC）.html" itemprop="url">消息中间件-Rabbitmq远程过程调用（RPC）</a></h1>
         
 
         <div class="post-meta">
@@ -1322,8 +1164,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T17:33:17+08:00">
-                2017-09-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T16:48:43+08:00">
+                2018-01-02
               </time>
             
 
@@ -1345,8 +1187,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java中间件/" itemprop="url" rel="index">
-                    <span itemprop="name">java中间件</span>
+                  <a href="/categories/Rabbitmq-消息中间件/" itemprop="url" rel="index">
+                    <span itemprop="name">Rabbitmq,消息中间件</span>
                   </a>
                 </span>
 
@@ -1364,8 +1206,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/spring-boot里druid连接池配置（二）.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/spring-boot里druid连接池配置（二）.html" class="cy_cmt_count" data-xid="spring-boot里druid连接池配置（二）.html" itemprop="commentsCount" ></span>
+                <a href="/消息中间件-Rabbitmq远程过程调用（RPC）.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/消息中间件-Rabbitmq远程过程调用（RPC）.html" class="cy_cmt_count" data-xid="消息中间件-Rabbitmq远程过程调用（RPC）.html" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -1373,7 +1215,7 @@
 
           
           
-             <span id="/spring-boot里druid连接池配置（二）.html" class="leancloud_visitors" data-flag-title="spring-boot里druid连接池配置（二）">
+             <span id="/消息中间件-Rabbitmq远程过程调用（RPC）.html" class="leancloud_visitors" data-flag-title="消息中间件-Rabbitmq远程过程调用（RPC）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1405,12 +1247,10 @@
 
       
         
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>上篇我们简单介绍了druid的简单配置，利用druid实现了数据库的监控和配置密码的加密，今天我们从源码的角度分析druid的监控实现。</p>
-<h3 id="数据库监控配置"><a href="#数据库监控配置" class="headerlink" title="数据库监控配置"></a>数据库监控配置</h3><p>在上篇的代码里我们通过springboot自带的Servlet注册Bean进行Servlet注册了StatViewServlet，通过自带的Filter注册bean注册了WebStatFilter，今天我们俩介绍一下这个两个bean的作用。</p>
-<h2 id="StatViewServlet"><a href="#StatViewServlet" class="headerlink" title="StatViewServlet"></a>StatViewServlet</h2><p>看看它的配置，我们就知道，它是一个实现druid监控视图的servlet,通过这个servlet我们配置了监控视图web页的登录账号和密码，通过设置黑白名单ip配置web页的访问权限,接下来我们来看看这个配置在哪生效的。<br>跟踪StatViewServlet的父类ResourceServlet:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private void initAuthEnv() &#123;</div><div class="line">       String paramUserName = getInitParameter(PARAM_NAME_USERNAME);</div><div class="line">       if (!StringUtils.isEmpty(paramUserName)) &#123;</div><div class="line">           this.username = paramUserName;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       String paramPassword = getInitParameter(PARAM_NAME_PASSWORD);</div><div class="line">       if (!StringUtils.isEmpty(paramPassword)) &#123;</div><div class="line">           this.password = paramPassword;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       String paramRemoteAddressHeader = getInitParameter(PARAM_REMOTE_ADDR);</div><div class="line">       if (!StringUtils.isEmpty(paramRemoteAddressHeader)) &#123;</div><div class="line">           this.remoteAddressHeader = paramRemoteAddressHeader;</div><div class="line">       &#125;</div><div class="line">       ....</div></pre></td></tr></table></figure></p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="http://xkupc.top/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-Rabbitmq%E5%B7%A5%E4%BD%9C%E9%98%9F%E5%88%97.html" target="_blank">消息中间件第二篇</a>介绍了通过RabbitMQ的工作队列，我们将耗时的任务分发给多个消费者去处理，现在我们有这样一个需求，生产者需要获取消费者处理后的结果，还是用户注册的场景，注册信息被分发给大数据服务后，大数据服务分析处理用户信息后，计算出该用户的基础信用积分，并需将结果回传给账户中心保存。是的，这就是我们熟知的远程过程调用模式。如果我们不借助RabbitMQ的RPC模式，我们也可以将大数据服务也当生产者，当计算出用户信息积分后，将结果丢到一个队列供账户中心去消费处理保存。今天来研究一下RabbitMQ的RPC是怎么玩的。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/spring-boot里druid连接池配置（二）.html#more" rel="contents">
+            <a class="btn" href="/消息中间件-Rabbitmq远程过程调用（RPC）.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1461,7 +1301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xkupc.top/spring-boot里druid连接池配置（一）.html">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/消息中间件-Rabbitmq消息主题.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="许凯">
@@ -1480,7 +1320,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/spring-boot里druid连接池配置（一）.html" itemprop="url">spring-boot里druid连接池配置（一）</a></h1>
+                <a class="post-title-link" href="/消息中间件-Rabbitmq消息主题.html" itemprop="url">消息中间件-Rabbitmq消息主题</a></h1>
         
 
         <div class="post-meta">
@@ -1492,8 +1332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T19:20:18+08:00">
-                2017-09-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T15:36:40+08:00">
+                2018-01-02
               </time>
             
 
@@ -1515,8 +1355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java中间件/" itemprop="url" rel="index">
-                    <span itemprop="name">java中间件</span>
+                  <a href="/categories/Rabbitmq-消息中间件/" itemprop="url" rel="index">
+                    <span itemprop="name">Rabbitmq,消息中间件</span>
                   </a>
                 </span>
 
@@ -1534,8 +1374,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/spring-boot里druid连接池配置（一）.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://xkupc.top/spring-boot里druid连接池配置（一）.html" class="cy_cmt_count" data-xid="spring-boot里druid连接池配置（一）.html" itemprop="commentsCount" ></span>
+                <a href="/消息中间件-Rabbitmq消息主题.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/消息中间件-Rabbitmq消息主题.html" class="cy_cmt_count" data-xid="消息中间件-Rabbitmq消息主题.html" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -1543,7 +1383,7 @@
 
           
           
-             <span id="/spring-boot里druid连接池配置（一）.html" class="leancloud_visitors" data-flag-title="spring-boot里druid连接池配置（一）">
+             <span id="/消息中间件-Rabbitmq消息主题.html" class="leancloud_visitors" data-flag-title="消息中间件-Rabbitmq消息主题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1575,12 +1415,516 @@
 
       
         
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>J2EE项目大部分都会涉及到数据库，为了提高操作数据库的性能，提高访问的并发量，大部分的应用会选择使用数据库连接池，目前比较成熟的数据库连接池有许多，像c3p0,dhcp等已经成为ORM中间件的标配。druid作为数据库连接池的后起之秀，号称史上性能最好的数据库连接池，逐步的被广泛应用于互联网公司项目中。今天介绍一下druid在spring-boot里的简单的使用。后续将更新druid的一些配置含义</p>
-<h2 id="依赖配置"><a href="#依赖配置" class="headerlink" title="依赖配置"></a>依赖配置</h2><p>小编使用了druid目前支持的集成spring-boot版本，主要的maven依赖如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.1.3&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.1.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.14&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;3.1.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇我们通过direct交换机，对消息进行过滤后推送给指定队列，匹配的规则还是不够灵活，因为对于一个消费者来说，它所处理的消息可能存在多重的标准，那我们注册用户的场景来说，推送给大数据服务的注册信息要有实名认证信息，对于优惠券来说，推送的优惠券包含实体店优惠券，于是需要注册信息里包含用户的地址信息，这样显然direct已经满足不了我们的需求。今天我们来学习一个满足需求的交换机类型-topic。</p>
+<h2 id="Topic-Exchange"><a href="#Topic-Exchange" class="headerlink" title="Topic Exchange"></a>Topic Exchange</h2><p>和direct一样，topic和队列通过bind key进行绑定进行绑定，不同的是key不再是随意的单词，它必须是一个通过点连接的多个单词列表，如：stock.usd.nyse，quick.orange.rabbit，最长为255个字节。<br>同时bind key支持模糊匹配，topic通过<em>和#支持模糊匹配。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/spring-boot里druid连接池配置（一）.html#more" rel="contents">
+            <a class="btn" href="/消息中间件-Rabbitmq消息主题.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/消息中间件-Rabbitmq消息路由.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/消息中间件-Rabbitmq消息路由.html" itemprop="url">消息中间件-Rabbitmq消息路由</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T14:01:57+08:00">
+                2018-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rabbitmq-消息中间件/" itemprop="url" rel="index">
+                    <span itemprop="name">Rabbitmq,消息中间件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/消息中间件-Rabbitmq消息路由.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/消息中间件-Rabbitmq消息路由.html" class="cy_cmt_count" data-xid="消息中间件-Rabbitmq消息路由.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/消息中间件-Rabbitmq消息路由.html" class="leancloud_visitors" data-flag-title="消息中间件-Rabbitmq消息路由">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇我们解决了一个消息通过fanout Exchange同时分发到多个队列进行处理，今天我们来介绍另一种类型的Exchange-direct。我们还是拿注册用户的场景来说，前面我们谈到注册成功的用户信息将同时推送给优惠券服务和大数据服务进行处理。现在有这样一个需求，注册信息中有用户实名信息的大数据服务才进行处理和分析，也就说实际上推给大数据服务的消息进行了过滤处理，当然我们完全可以通过程序来处理，接收到消息，校验是否有实名信息，没有的话直接丢弃，今天还是来讲一下将这个校验逻辑交给RabbitMQ来处理。</p>
+<h2 id="Direct-exchange"><a href="#Direct-exchange" class="headerlink" title="Direct exchange"></a>Direct exchange</h2><p>前面我们说fanout这种类型的交换机只是单纯的和队列进行绑定，无脑的往队列里推送它接收到的消息。而direct的实现则要智能的多，direct允许和队列进行绑定时，指定一个或者多个参数bind key，只有当消息匹配这些个参数中的一个时，消息才会被推送到该绑定的队列。请注意是匹配多个参数中的一个时，就会被推送。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/消息中间件-Rabbitmq消息路由.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/消息中间件-Rabbitmq发布订阅.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/消息中间件-Rabbitmq发布订阅.html" itemprop="url">消息中间件-Rabbitmq发布订阅</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T20:30:53+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rabbitmq-消息中间件/" itemprop="url" rel="index">
+                    <span itemprop="name">Rabbitmq,消息中间件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/消息中间件-Rabbitmq发布订阅.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/消息中间件-Rabbitmq发布订阅.html" class="cy_cmt_count" data-xid="消息中间件-Rabbitmq发布订阅.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/消息中间件-Rabbitmq发布订阅.html" class="leancloud_visitors" data-flag-title="消息中间件-Rabbitmq发布订阅">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇工作队列我们讲到了，当一个消费者接收到消息并成功处理，返回确认以后，RabbitMQ将消息从队列里移除，消息不回再被另外的消费者锁接收处理，但是我们会有这样的一些场景，我们接着上一篇的场景来说，如果客户注册以后，我们不仅需要根据客户注册信息给客户推送合适的优惠券，还需要将客户的注册信息同步到大数据平台进行保存并分析，这就意味着一个客户注册消息可以被多个消费者消费。这种场景就是我们很熟悉的发布订阅的模式了。今天我们来研究一下RabbitMQ的发布订阅模式。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/消息中间件-Rabbitmq发布订阅.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/消息中间件-Rabbitmq工作队列.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/消息中间件-Rabbitmq工作队列.html" itemprop="url">消息中间件-Rabbitmq工作队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:21:44+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rabbitmq-消息中间件/" itemprop="url" rel="index">
+                    <span itemprop="name">Rabbitmq,消息中间件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/消息中间件-Rabbitmq工作队列.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://xkupc.top/消息中间件-Rabbitmq工作队列.html" class="cy_cmt_count" data-xid="消息中间件-Rabbitmq工作队列.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/消息中间件-Rabbitmq工作队列.html" class="leancloud_visitors" data-flag-title="消息中间件-Rabbitmq工作队列">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇通过简单的例子实现了Rabbitmq的最简单的生产消费队列。这种队列的应用场景有很多，如客户在商城里注册以后，我们需要给这个客户发新手优惠券，发送的优惠券是根据用户注册时提交的一些个人爱好相关的产品的券，是个耗时的操作，注册系统不必等待也不关系是否优惠券推送成功，客户注册成功直接返回就是了，只要将客户注册信息推送给优惠券系统就可以了。这里面就会有一个问题，客户知道注册时有优惠券送的，但是当他注册完的时候，优惠券服务给他推送优惠券的时候突然宕机了，这个时候问题就来了，因为Rabbitmq的机制里，消息一旦被接收，消息就会在队列里被删除，这样这个客户注册的消息就丢失了，即便是优惠券服务重启，这个客户也不会收到优惠券了。针对这种情形，Rabbitmq给出消息确认的方案，即Message acknowledgment。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/消息中间件-Rabbitmq工作队列.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1621,6 +1965,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1667,7 +2015,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1678,7 +2026,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1689,7 +2037,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1767,7 +2115,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

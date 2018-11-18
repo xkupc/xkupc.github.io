@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="前言上一篇研究了List.sort()采用的老版归并排序方法-legacyMergeSort，今天研究一下经过复杂优化的排序方法-TimSort，算法有点复杂，慢慢磨。思路最重要。 源码直接进入TimSort.sort方法：12345678910111213141516171819202122232425262728293031323334353637383940414243444546stati">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java里的排序-Comparator（三）">
+<meta property="og:url" content="http://xkupc.top/java里的排序-Comparator（三）.html">
+<meta property="og:site_name" content="随笔">
+<meta property="og:description" content="前言上一篇研究了List.sort()采用的老版归并排序方法-legacyMergeSort，今天研究一下经过复杂优化的排序方法-TimSort，算法有点复杂，慢慢磨。思路最重要。 源码直接进入TimSort.sort方法：12345678910111213141516171819202122232425262728293031323334353637383940414243444546stati">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-31T15:34:48.168Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java里的排序-Comparator（三）">
+<meta name="twitter:description" content="前言上一篇研究了List.sort()采用的老版归并排序方法-legacyMergeSort，今天研究一下经过复杂优化的排序方法-TimSort，算法有点复杂，慢慢磨。思路最重要。 源码直接进入TimSort.sort方法：12345678910111213141516171819202122232425262728293031323334353637383940414243444546stati">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xkupc.top/java里的排序-Comparator（三）.html"/>
+
+
+
+
+
+  <title>java里的排序-Comparator（三） | 随笔</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">随笔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">xk的个人小站</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xkupc.top/java里的排序-Comparator（三）.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java里的排序-Comparator（三）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T10:16:55+08:00">
+                2017-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/排序算法/" itemprop="url" rel="index">
+                    <span itemprop="name">排序算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/java里的排序-Comparator（三）.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="java里的排序-Comparator（三）.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/java里的排序-Comparator（三）.html" class="leancloud_visitors" data-flag-title="java里的排序-Comparator（三）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇研究了List.sort()采用的老版归并排序方法-legacyMergeSort，今天研究一下经过复杂优化的排序方法-TimSort，算法有点复杂，慢慢磨。思路最重要。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>直接进入TimSort.sort方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(T[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, Comparator&lt;? <span class="keyword">super</span> T&gt; c,</span></span></div><div class="line"><span class="function"><span class="params">                         T[] work, <span class="keyword">int</span> workBase, <span class="keyword">int</span> workLen)</span> </span>&#123;</div><div class="line">        <span class="keyword">assert</span> c != <span class="keyword">null</span> &amp;&amp; a != <span class="keyword">null</span> &amp;&amp; lo &gt;= <span class="number">0</span> &amp;&amp; lo &lt;= hi &amp;&amp; hi &lt;= a.length;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> nRemaining  = hi - lo;</div><div class="line">        <span class="keyword">if</span> (nRemaining &lt; <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span>;  <span class="comment">// Arrays of size 0 and 1 are always sorted</span></div><div class="line"></div><div class="line">        <span class="comment">// If array is small, do a "mini-TimSort" with no merges</span></div><div class="line">        <span class="keyword">if</span> (nRemaining &lt; MIN_MERGE) &#123;</div><div class="line">            <span class="keyword">int</span> initRunLen = countRunAndMakeAscending(a, lo, hi, c);</div><div class="line">            binarySort(a, lo, hi, lo + initRunLen, c);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * March over the array once, left to right, finding natural runs,</span></div><div class="line"><span class="comment">         * extending short natural runs to minRun elements, and merging runs</span></div><div class="line"><span class="comment">         * to maintain stack invariant.</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        TimSort&lt;T&gt; ts = <span class="keyword">new</span> TimSort&lt;&gt;(a, c, work, workBase, workLen);</div><div class="line">        <span class="keyword">int</span> minRun = minRunLength(nRemaining);</div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            <span class="comment">// Identify next run</span></div><div class="line">            <span class="keyword">int</span> runLen = countRunAndMakeAscending(a, lo, hi, c);</div><div class="line"></div><div class="line">            <span class="comment">// If run is short, extend to min(minRun, nRemaining)</span></div><div class="line">            <span class="keyword">if</span> (runLen &lt; minRun) &#123;</div><div class="line">                <span class="keyword">int</span> force = nRemaining &lt;= minRun ? nRemaining : minRun;</div><div class="line">                binarySort(a, lo, lo + force, lo + runLen, c);</div><div class="line">                runLen = force;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// Push run onto pending-run stack, and maybe merge</span></div><div class="line">            ts.pushRun(lo, runLen);</div><div class="line">            ts.mergeCollapse();</div><div class="line"></div><div class="line">            <span class="comment">// Advance to find next run</span></div><div class="line">            lo += runLen;</div><div class="line">            nRemaining -= runLen;</div><div class="line">        &#125; <span class="keyword">while</span> (nRemaining != <span class="number">0</span>);</div><div class="line"></div><div class="line">        <span class="comment">// Merge all remaining runs to complete sort</span></div><div class="line">        <span class="keyword">assert</span> lo == hi;</div><div class="line">        ts.mergeForceCollapse();</div><div class="line">        <span class="keyword">assert</span> ts.stackSize == <span class="number">1</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>初始参数：<br>目标数组T[] a<br>待排序的第一个元素int lo<br>带排序的最后一个元素int hi<br>排序规则comparator c<br>我们先来通过源码理清是如何实现的排序的，再来分析TimeSort的实现原理。</p>
+<h3 id="1-校验是否满足binarySort规则"><a href="#1-校验是否满足binarySort规则" class="headerlink" title="1.校验是否满足binarySort规则"></a>1.校验是否满足binarySort规则</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> nRemaining  = hi - lo;</div><div class="line">        <span class="keyword">if</span> (nRemaining &lt; <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">if</span> (nRemaining &lt; MIN_MERGE) &#123;</div><div class="line">            <span class="keyword">int</span> initRunLen = countRunAndMakeAscending(a, lo, hi, c);</div><div class="line">            binarySort(a, lo, hi, lo + initRunLen, c);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>判断中待排序数据元素：<br>    （1）当元素数量为0或者1时，则不必排序<br>    （2）当元素数量小于MIN_MERGE（为常量32）时，采用binarySort排序。（稍后在分析）</p>
+<h3 id="2-分配空间"><a href="#2-分配空间" class="headerlink" title="2.分配空间"></a>2.分配空间</h3><p>构造TimeSort实例，初始化分片的内存空间和归并时的临时空间，这里分配空间是也根据目标数组的长度做了最适合的分配。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">TimSort&lt;T&gt; ts = <span class="keyword">new</span> TimSort&lt;&gt;(a, c, work, workBase, workLen);</div><div class="line"> </div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">TimSort</span><span class="params">(T[] a, Comparator&lt;? <span class="keyword">super</span> T&gt; c, T[] work, <span class="keyword">int</span> workBase, <span class="keyword">int</span> workLen)</span> </span>&#123;</div><div class="line">       <span class="keyword">this</span>.a = a;</div><div class="line">       <span class="keyword">this</span>.c = c;</div><div class="line">       <span class="keyword">int</span> len = a.length;</div><div class="line">       <span class="keyword">int</span> tlen = (len &lt; <span class="number">2</span> * INITIAL_TMP_STORAGE_LENGTH) ?</div><div class="line">           len &gt;&gt;&gt; <span class="number">1</span> : INITIAL_TMP_STORAGE_LENGTH;</div><div class="line">       <span class="keyword">if</span> (work == <span class="keyword">null</span> || workLen &lt; tlen || workBase + tlen &gt; work.length) &#123;</div><div class="line">           <span class="meta">@SuppressWarnings</span>(&#123;<span class="string">"unchecked"</span>, <span class="string">"UnnecessaryLocalVariable"</span>&#125;)</div><div class="line">           T[] newArray = (T[])java.lang.reflect.Array.newInstance</div><div class="line">               (a.getClass().getComponentType(), tlen);</div><div class="line">           tmp = newArray;</div><div class="line">           tmpBase = <span class="number">0</span>;</div><div class="line">           tmpLen = tlen;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">else</span> &#123;</div><div class="line">           tmp = work;</div><div class="line">           tmpBase = workBase;</div><div class="line">           tmpLen = workLen;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">int</span> stackLen = (len &lt;    <span class="number">120</span>  ?  <span class="number">5</span> :</div><div class="line">                       len &lt;   <span class="number">1542</span>  ? <span class="number">10</span> :</div><div class="line">                       len &lt; <span class="number">119151</span>  ? <span class="number">24</span> : <span class="number">49</span>);</div><div class="line">       runBase = <span class="keyword">new</span> <span class="keyword">int</span>[stackLen];</div><div class="line">       runLen = <span class="keyword">new</span> <span class="keyword">int</span>[stackLen];</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-计算最小分片长度"><a href="#3-计算最小分片长度" class="headerlink" title="3.计算最小分片长度"></a>3.计算最小分片长度</h3><p>通过minRunLength计算最小分片长度，低于这个长度，采用binarySort排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int minRun = minRunLength(nRemaining);</div></pre></td></tr></table></figure></p>
+<h3 id="4-do-while"><a href="#4-do-while" class="headerlink" title="4.do while"></a>4.do while</h3><p>do while循环里每次获取一个升序的分片长度，判断该长度是否小于最小分片长度，小于最小长度，使用binarySort排序。<br>分析一下binarySort排序：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">binarySort</span><span class="params">(T[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> start,</span></span></div><div class="line"><span class="function"><span class="params">                                       Comparator&lt;? <span class="keyword">super</span> T&gt; c)</span> </span>&#123;</div><div class="line">        <span class="keyword">assert</span> lo &lt;= start &amp;&amp; start &lt;= hi;</div><div class="line">        <span class="keyword">if</span> (start == lo)</div><div class="line">            start++;</div><div class="line">        <span class="keyword">for</span> ( ; start &lt; hi; start++) &#123;</div><div class="line">            T pivot = a[start];</div><div class="line"></div><div class="line">            <span class="comment">// Set left (and right) to the index where a[start] (pivot) belongs</span></div><div class="line">            <span class="keyword">int</span> left = lo;</div><div class="line">            <span class="keyword">int</span> right = start;</div><div class="line">            <span class="keyword">assert</span> left &lt;= right;</div><div class="line">            <span class="comment">/*</span></div><div class="line"><span class="comment">             * Invariants:</span></div><div class="line"><span class="comment">             *   pivot &gt;= all in [lo, left).</span></div><div class="line"><span class="comment">             *   pivot &lt;  all in [right, start).</span></div><div class="line"><span class="comment">             */</span></div><div class="line">            <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">                <span class="keyword">int</span> mid = (left + right) &gt;&gt;&gt; <span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span> (c.compare(pivot, a[mid]) &lt; <span class="number">0</span>)</div><div class="line">                    right = mid;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    left = mid + <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">assert</span> left == right;</div><div class="line"></div><div class="line">            <span class="comment">/*</span></div><div class="line"><span class="comment">             * The invariants still hold: pivot &gt;= all in [lo, left) and</span></div><div class="line"><span class="comment">             * pivot &lt; all in [left, start), so pivot belongs at left.  Note</span></div><div class="line"><span class="comment">             * that if there are elements equal to pivot, left points to the</span></div><div class="line"><span class="comment">             * first slot after them -- that's why this sort is stable.</span></div><div class="line"><span class="comment">             * Slide elements over to make room for pivot.</span></div><div class="line"><span class="comment">             */</span></div><div class="line">            <span class="keyword">int</span> n = start - left;  <span class="comment">// The number of elements to move</span></div><div class="line">            <span class="comment">// Switch is just an optimization for arraycopy in default case</span></div><div class="line">            <span class="keyword">switch</span> (n) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="number">2</span>:  a[left + <span class="number">2</span>] = a[left + <span class="number">1</span>];</div><div class="line">                <span class="keyword">case</span> <span class="number">1</span>:  a[left + <span class="number">1</span>] = a[left];</div><div class="line">                         <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>: System.arraycopy(a, left, a, left + <span class="number">1</span>, n);</div><div class="line">            &#125;</div><div class="line">            a[left] = pivot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>我们可以看到binarySort对一个升序的分片进行了扩展，使它扩展到最小分片长度，并使用二分法对扩展分片进行排序。进入binarySort时，目标数组从lo到start是有序的，只需要将start到hi的元素通过二分法定位插入到已有序的序列中，这样整个从lo到hi就有序了。<br>接着通过runBase和runLen记录该分片的起始位置和长度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ts.pushRun(lo, runLen);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pushRun</span><span class="params">(<span class="keyword">int</span> runBase, <span class="keyword">int</span> runLen)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.runBase[stackSize] = runBase;</div><div class="line">    <span class="keyword">this</span>.runLen[stackSize] = runLen;</div><div class="line">    stackSize++;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后就可以尝试着将多个分片进行归并了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ts.mergeCollapse();</div><div class="line"></div><div class="line">lo += runLen;</div><div class="line">nRemaining -= runLen;</div></pre></td></tr></table></figure></p>
+<p>我们来看mergeCollapse这个函数，这是TimSort的核心算法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">mergeCollapse</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">while</span> (stackSize &gt; <span class="number">1</span>) &#123;</div><div class="line">           <span class="keyword">int</span> n = stackSize - <span class="number">2</span>;</div><div class="line">           <span class="keyword">if</span> (n &gt; <span class="number">0</span> &amp;&amp; runLen[n-<span class="number">1</span>] &lt;= runLen[n] + runLen[n+<span class="number">1</span>]) &#123;</div><div class="line">               <span class="keyword">if</span> (runLen[n - <span class="number">1</span>] &lt; runLen[n + <span class="number">1</span>])</div><div class="line">                   n--;</div><div class="line">               mergeAt(n);</div><div class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (runLen[n] &lt;= runLen[n + <span class="number">1</span>]) &#123;</div><div class="line">               mergeAt(n);</div><div class="line">           &#125; <span class="keyword">else</span> &#123;</div><div class="line">               <span class="keyword">break</span>; <span class="comment">// Invariant is established</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>这里有两个条件的判断：当多个分片长度不满足以下条件是，合并分片被执行：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.runLen[i - <span class="number">3</span>] &gt; runLen[i - <span class="number">2</span>] + runLen[i - <span class="number">1</span>]    </div><div class="line"><span class="number">2</span>.runLen[i - <span class="number">2</span>] &gt; runLen[i - <span class="number">1</span>]</div></pre></td></tr></table></figure></p>
+<p>我们可以这么理解，当条件1不被满足时，runLen[i - 2] ，runLen[i - 1]合并，合并之后，那么条件2也就不能被满足，继续合并。<br>继续看mergeAt的归并过程：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">mergeAt</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        <span class="keyword">assert</span> stackSize &gt;= <span class="number">2</span>;</div><div class="line">        <span class="keyword">assert</span> i &gt;= <span class="number">0</span>;</div><div class="line">        <span class="keyword">assert</span> i == stackSize - <span class="number">2</span> || i == stackSize - <span class="number">3</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> base1 = runBase[i];</div><div class="line">        <span class="keyword">int</span> len1 = runLen[i];</div><div class="line">        <span class="keyword">int</span> base2 = runBase[i + <span class="number">1</span>];</div><div class="line">        <span class="keyword">int</span> len2 = runLen[i + <span class="number">1</span>];</div><div class="line">        <span class="keyword">assert</span> len1 &gt; <span class="number">0</span> &amp;&amp; len2 &gt; <span class="number">0</span>;</div><div class="line">        <span class="keyword">assert</span> base1 + len1 == base2;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line"><span class="comment">         * Record the length of the combined runs; if i is the 3rd-last</span></div><div class="line"><span class="comment">         * run now, also slide over the last run (which isn't involved</span></div><div class="line"><span class="comment">         * in this merge).  The current run (i+1) goes away in any case.</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        runLen[i] = len1 + len2;</div><div class="line">        <span class="keyword">if</span> (i == stackSize - <span class="number">3</span>) &#123;</div><div class="line">            runBase[i + <span class="number">1</span>] = runBase[i + <span class="number">2</span>];</div><div class="line">            runLen[i + <span class="number">1</span>] = runLen[i + <span class="number">2</span>];</div><div class="line">        &#125;</div><div class="line">        stackSize--;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line"><span class="comment">         * Find where the first element of run2 goes in run1. Prior elements</span></div><div class="line"><span class="comment">         * in run1 can be ignored (because they're already in place).</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        <span class="keyword">int</span> k = gallopRight(a[base2], a, base1, len1, <span class="number">0</span>, c);</div><div class="line">        <span class="keyword">assert</span> k &gt;= <span class="number">0</span>;</div><div class="line">        base1 += k;</div><div class="line">        len1 -= k;</div><div class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line"><span class="comment">         * Find where the last element of run1 goes in run2. Subsequent elements</span></div><div class="line"><span class="comment">         * in run2 can be ignored (because they're already in place).</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        len2 = gallopLeft(a[base1 + len1 - <span class="number">1</span>], a, base2, len2, len2 - <span class="number">1</span>, c);</div><div class="line">        <span class="keyword">assert</span> len2 &gt;= <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (len2 == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line"></div><div class="line">        <span class="comment">// Merge remaining runs, using tmp array with min(len1, len2) elements</span></div><div class="line">        <span class="keyword">if</span> (len1 &lt;= len2)</div><div class="line">            mergeLo(base1, len1, base2, len2);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            mergeHi(base1, len1, base2, len2);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>在对入参做了一些常规校验以后，更新了存储分片信息数组，因为两个分片已经有序，所以可以采用一些小技巧完成合并。一直贴代码还是不好，我们继续看gallopLeft和gallopRight，<br>可以理解的是gallopRight通过二分法，找到了分片2的头在分片1的位置k，gallopLeft则通过二分法，找到分片1的尾在分片2的位置len2，这样我们只需要对a[base1+k]~a[base1+len1]与a[base2]~a[base2+len2]进行归并算法，新的大分片的头拷贝分片1的剩余的元素，尾拷贝分片2剩余的元素。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="许凯 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="许凯 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/java里的排序-Comparator（二）.html" rel="next" title="java里的排序-Comparator（二）">
+                <i class="fa fa-chevron-left"></i> java里的排序-Comparator（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/分布式锁实现浅谈.html" rel="prev" title="分布式锁实现浅谈">
+                分布式锁实现浅谈 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="许凯" />
+          
+            <p class="site-author-name" itemprop="name">许凯</p>
+            <p class="site-description motion-element" itemprop="description">所谓的价值，不过是将当前能做好的事做到极致，做到无人能及</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xkupc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xukaiupc@foxmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://chenzhijun.github.com/" title="chenzhijun的小站" target="_blank">chenzhijun的小站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://duanlei.win/" title="duanlei的小站" target="_blank">duanlei的小站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.51gongzy.top/html/couponItemIndex.html?key=bW1fMTA3ODIxNjY5XzIyNzA4MzIwXzEzMzg5Mjk4NQ==" title="我的淘宝优惠券" target="_blank">我的淘宝优惠券</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-校验是否满足binarySort规则"><span class="nav-number">2.1.</span> <span class="nav-text">1.校验是否满足binarySort规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-分配空间"><span class="nav-number">2.2.</span> <span class="nav-text">2.分配空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-计算最小分片长度"><span class="nav-number">2.3.</span> <span class="nav-text">3.计算最小分片长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-do-while"><span class="nav-number">2.4.</span> <span class="nav-text">4.do while</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">许凯</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytdQU8nW';
+      var conf = '248d0c3fe6a8503d6ca7f9481ccecbda';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ya5NxCwvObjEAMVrmNF0MS9C-gzGzoHsz", "9Vgz7LlODJ1n3IbLfN5m3ENc");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
