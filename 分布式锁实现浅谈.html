@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="spring-boot,java,zookeeper,redis," />
+  <meta name="keywords" content="java,spring-boot,zookeeper,redis," />
 
 
 
@@ -70,7 +70,7 @@
 
 
 <meta name="description" content="前言最近看了一些关于分布式锁的实现的一些文章，发现以前写的代码存在很多的错误，对分布式的锁的理解存在很多误区，在这记录一下分布式锁的几种正确的实现方式。先通过一个场景，我们来探讨一下分布式锁的一些特性。场景是这样的，订单服务部署在两台机器上，用户保存订单的时候，需要实时校验商品的库存并扣减，当两个用户的保存订单的并发请求分别被分发到在这两台机器上时，我们必须保证保存订单和商品库存的扣减就是两个需要">
-<meta name="keywords" content="spring-boot,java,zookeeper,redis">
+<meta name="keywords" content="java,spring-boot,zookeeper,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式锁实现浅谈">
 <meta property="og:url" content="http://xkupc.top/分布式锁实现浅谈.html">
@@ -450,9 +450,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
-          
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
           
             <a href="/tags/zookeeper/" rel="tag"># zookeeper</a>
           
